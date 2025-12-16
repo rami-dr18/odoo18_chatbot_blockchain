@@ -213,11 +213,14 @@ Pour toute question ou problème :
 - Gestion complète des stocks
 
 ## 📸 Captures d'écran
+![Project Screenshot](images/dashboard.png)
 
 ![Project Screenshot](images/Chatbot.png)
 
 
 ![Project Screenshot](images/smartcontract.png)
+
+
 
 ## ⚠️ Notes importantes
 
