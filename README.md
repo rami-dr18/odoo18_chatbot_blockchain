@@ -217,7 +217,6 @@ Pour toute question ou problème :
 
 ![Project Screenshot](images/Chatbot.png)
 
-
 ![Project Screenshot](images/smartcontract.png)
 
 
