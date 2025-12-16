@@ -195,13 +195,9 @@ Ce module est sous licence **LGPL-3**.
 
 ## 👤 Auteur
 
-**Your Name**
+Rami Drira
+Mohamed Ali Rebai
 
-## 📞 Support
-
-Pour toute question ou problème :
-- Ouvrez une issue sur GitHub
-- Contactez l'équipe de support
 
 ## 🔄 Versions
 
