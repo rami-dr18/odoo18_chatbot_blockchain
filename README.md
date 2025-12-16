@@ -228,6 +228,3 @@ Pour toute question ou problème :
 - Les seuils de réapprovisionnement doivent être configurés pour chaque produit
 - La blockchain est simulée localement (pas de réseau distribué)
 
----
-
-Made with ❤️ for Odoo
