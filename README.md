@@ -214,7 +214,10 @@ Pour toute question ou problème :
 
 ## 📸 Captures d'écran
 
-_Ajoutez vos captures d'écran ici pour montrer l'interface du module_
+![Project Screenshot](images/Chatbot.png)
+
+
+![Project Screenshot](images/smartcontract.png)
 
 ## ⚠️ Notes importantes
 
