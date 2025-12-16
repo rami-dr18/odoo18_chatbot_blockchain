@@ -1,0 +1,106 @@
+<odoo>
+    <record id="view_stock_dashboard_form" model="ir.ui.view">
+        <field name="name">stock.dashboard.form</field>
+        <field name="model">stock.dashboard</field>
+        <field name="arch" type="xml">
+
+            <form string="Dashboard Stock" class="oe_form_dashboard">
+
+                <header>
+                </header>
+
+                <sheet style="background: linear-gradient(120deg, #f0f4f8 0%, #d9e2ec 100%); min-height: 100vh; padding: 60px 20px; font-family: 'Segoe UI', sans-serif;">
+
+                    <!-- TITRE PRINCIPAL MINIMALISTE ET ÉLÉGANT -->
+                    <div style="text-align:center; margin-bottom:60px;">
+                        <h1 style="font-size:48px; margin:0; color:#243b55; font-weight:700;">
+                            Inventaire Et Gestion de Stock
+                        </h1>
+                        <p style="font-size:18px; color:#627d98; margin-top:12px; font-weight:400;">
+                            Analyse de vos mouvements et stocks
+                        </p>
+                    </div>
+
+                    <!-- SECTION DES INDICATEURS CLÉS - LAYOUT HORIZONTAL MINIMALISTE SANS CARTES -->
+                    <div style="
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: center;
+                        gap: 80px;
+                        max-width: 1400px;
+                        margin: 0 auto 80px auto;
+                        padding: 40px;
+                        background: rgba(255, 255, 255, 0.6);
+                        border-radius: 24px;
+                        box-shadow: 0 8px 32px rgba(0,0,0,0.05);
+                    ">
+
+                        <!-- Entrées Aujourd’hui -->
+                        <div style="text-align:center; min-width:200px;">
+                            <div style="font-size:16px; color:#627d98; margin-bottom:8px; font-weight:500;">
+                                 Entrées 
+                            </div>
+                            <div style="font-size:52px; font-weight:800; color:#2ecc71;">
+                                <field name="today_entries" widget="statinfo"/>
+                            </div>
+                        </div>
+
+                        <!-- Sorties Aujourd’hui -->
+                        <div style="text-align:center; min-width:200px;">
+                            <div style="font-size:16px; color:#627d98; margin-bottom:8px; font-weight:500;">
+                                 Sorties
+                            </div>
+                            <div style="font-size:52px; font-weight:800; color:#e74c3c;">
+                                <field name="today_exits" widget="statinfo"/>
+                            </div>
+                        </div>
+
+                        <!-- Stock Total -->
+                        <div style="text-align:center; min-width:200px;">
+                            <div style="font-size:16px; color:#627d98; margin-bottom:8px; font-weight:500;">
+                                Stock Total
+                            </div>
+                            <div style="font-size:52px; font-weight:800; color:#3498db;">
+                                <field name="total_quantity" widget="statinfo"/>
+                            </div>
+                            <div style="font-size:14px; color:#627d98; margin-top:4px;">
+                                Unités disponibles
+                            </div>
+                        </div>
+
+                        <!-- Produits en Rupture -->
+                        <div style="text-align:center; min-width:200px;">
+                            <div style="font-size:16px; color:#627d98; margin-bottom:8px; font-weight:500;">
+                                Produits en Rupture
+                            </div>
+                            <div style="font-size:52px; font-weight:800; color:#e67e22;">
+                                <field name="out_of_stock_count" widget="statinfo"/>
+                            </div>
+                            <div style="font-size:14px; color:#627d98; margin-top:4px;">
+                                Alerte stock
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- ESPACE POUR DES ÉLÉMENTS SUPPLÉMENTAIRES (ex: graphiques, listes) -->
+                    <!-- Vous pouvez ajouter ici des graphiques ou tables si votre modèle les supporte -->
+                    <div style="max-width:1400px; margin:0 auto; text-align:center; color:#627d98;">
+                        <p>Espace réservé pour des visualisations avancées (graphiques, tendances, etc.)</p>
+                    </div>
+
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+
+    <!-- ACTION -->
+    <record id="action_stock_dashboard" model="ir.actions.act_window">
+        <field name="name">Dashboard Stock</field>
+        <field name="res_model">stock.dashboard</field>
+        <field name="view_mode">form</field>
+        <field name="target">current</field>
+    </record>
+
+</odoo>

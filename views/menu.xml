@@ -1,0 +1,62 @@
+<odoo>
+    <!-- Menu parent Stock -->
+    <menuitem id="menu_stock_root"
+              name="Gestion de Stock"
+              sequence="1"/>
+
+    <!-- Dashboard en premier -->
+    <menuitem id="menu_stock_dashboard"
+              name="Dashboard Stock"
+              parent="menu_stock_root"
+              action="action_stock_dashboard"
+              sequence="1"/>
+
+    <!-- Produits -->
+    <menuitem id="menu_stock_products"
+              name="Produits"
+              parent="menu_stock_root"
+              action="action_stock_products"
+              sequence="2"/>
+
+    <menuitem id="menu_stock_locations"
+              name="Emplacements"
+              parent="menu_stock_root"
+              action="action_stock_locations"
+              sequence="3"/>
+
+    <!-- Entrées -->
+    <menuitem id="menu_stock_entries"
+              name="Entrées de Stock"
+              parent="menu_stock_root"
+              action="action_stock_entry"
+              sequence="4"/>
+
+    <!-- Sorties -->
+    <menuitem id="menu_stock_exits"
+              name="Sorties de Stock"
+              parent="menu_stock_root"
+              action="action_stock_exit"
+              sequence="5"/>
+
+    <!-- Mouvements -->
+    <menuitem id="menu_stock_moves" 
+              name="Mouvements" 
+              parent="menu_stock_root" 
+              action="action_stock_moves"
+              sequence="6"/>
+
+
+    <!-- Smart ChatBot IA -->
+    <menuitem id="menu_smartchat"
+              name="Smart ChatBot IA"
+              parent="menu_stock_root"
+              action="action_smartchat"
+              sequence="7"/>
+
+    <!-- Smart Contracts Auto -->
+    <menuitem id="menu_stock_reorder_contract"
+              name="Smart Contracts Auto"
+              parent="menu_stock_root"
+              action="action_stock_reorder_contract"
+              sequence="9"/>
+</odoo>

@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_stock_entry,access_stock_entry,model_stock_entry,,1,1,1,1
+access_stock_exit,access_stock_exit,model_stock_exit,,1,1,1,1
+access_smartchat,access_smartchat,model_smart_chat_bot,,1,1,1,1
+access_stock_dashboard,access_stock_dashboard,model_stock_dashboard,,1,1,1,1
+access_stock_product,access_stock_product,model_stock_product,,1,1,1,1
+access_stock_reorder_contract,access_stock_reorder_contract,model_stock_reorder_contract,,1,1,1,1
+access_stock_location_custom_user,access_stock_location_custom_user,model_stock_location_custom,,1,1,1,1
+access_stock_move_user,stock.move.user,model_stock_move_custom,,1,1,1,1
+

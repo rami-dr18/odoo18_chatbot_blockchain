@@ -1,0 +1,149 @@
+<odoo>
+    <!-- Vue Formulaire Smart ChatBot avec Interface Chat -->
+    <record id="view_smartchat_form" model="ir.ui.view">
+        <field name="name">smart.chat.bot.form</field>
+        <field name="model">smart.chat.bot</field>
+        <field name="arch" type="xml">
+            <form string="Smart ChatBot IA">
+                <header>
+                    <button name="send_smart_message" 
+                            type="object" 
+                            string="🚀 Envoyer" 
+                            class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <i class="fa fa-robot"/> Smart Assistant IA
+                        </h1>
+                        <h3 style="color: #875A7B;">
+                            Posez vos questions sur la gestion de stock
+                        </h3>
+                    </div>
+                    
+                    <group>
+                        <group>
+                            <field name="user_id" readonly="1"/>
+                            <field name="date" readonly="1"/>
+                        </group>
+                    </group>
+                    
+                    <notebook>
+                        <page string="💬 Conversation">
+                            <group>
+                                <field name="message" 
+                                       placeholder="Posez votre question ici... Ex: Combien de produits en rupture ? Quel est le stock total ?"
+                                       nolabel="1"
+                                       widget="text"
+                                       style="min-height: 100px; font-size: 14px;"/>
+                            </group>
+                            
+                            <separator string="Réponse de l'IA"/>
+                            
+                            <group>
+                                <field name="response" 
+                                       nolabel="1"
+                                       readonly="1"
+                                       widget="text"
+                                       style="min-height: 150px; background-color: #f0f8ff; padding: 15px; border-radius: 8px; font-size: 14px;"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vue Liste Smart ChatBot -->
+    <record id="view_smartchat_tree" model="ir.ui.view">
+        <field name="name">smart.chat.bot.tree</field>
+        <field name="model">smart.chat.bot</field>
+        <field name="arch" type="xml">
+            <list string="Historique Smart ChatBot" decoration-info="response != False">
+                <field name="date"/>
+                <field name="user_id"/>
+                <field name="message"/>
+                <field name="response"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Vue Kanban (Chat Style) -->
+    <record id="view_smartchat_kanban" model="ir.ui.view">
+        <field name="name">smart.chat.bot.kanban</field>
+        <field name="model">smart.chat.bot</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <field name="message"/>
+                <field name="response"/>
+                <field name="date"/>
+                <field name="user_id"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click" style="margin: 10px; padding: 15px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                            <div class="oe_kanban_content">
+                                <div style="color: white; margin-bottom: 10px;">
+                                    <strong style="font-size: 16px;">
+                                        <i class="fa fa-user"/> <field name="user_id"/>
+                                    </strong>
+                                    <span style="float: right; font-size: 12px;">
+                                        <i class="fa fa-clock-o"/> <field name="date"/>
+                                    </span>
+                                </div>
+                                
+                                <div style="background: white; padding: 10px; border-radius: 8px; margin-bottom: 10px;">
+                                    <strong style="color: #667eea;">Question:</strong>
+                                    <p style="margin: 5px 0; color: #333;"><field name="message"/></p>
+                                </div>
+                                
+                                <div style="background: #f0f8ff; padding: 10px; border-radius: 8px;">
+                                    <strong style="color: #764ba2;">
+                                        <i class="fa fa-robot"/> Réponse IA:
+                                    </strong>
+                                    <p style="margin: 5px 0; color: #333;"><field name="response"/></p>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Vue Recherche -->
+    <record id="view_smartchat_search" model="ir.ui.view">
+        <field name="name">smart.chat.bot.search</field>
+        <field name="model">smart.chat.bot</field>
+        <field name="arch" type="xml">
+            <search string="Rechercher dans ChatBot">
+                <field name="message"/>
+                <field name="response"/>
+                <field name="user_id"/>
+                <filter string="Mes Messages" name="my_messages" domain="[('user_id', '=', uid)]"/>
+                <filter string="Aujourd'hui" name="today" domain="[('date', '&gt;=', datetime.datetime.now().replace(hour=0, minute=0, second=0))]"/>
+                <group expand="0" string="Grouper par">
+                    <filter string="Utilisateur" name="group_user" context="{'group_by': 'user_id'}"/>
+                    <filter string="Date" name="group_date" context="{'group_by': 'date'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action Smart ChatBot -->
+    <record id="action_smartchat" model="ir.actions.act_window">
+        <field name="name">🤖 Smart ChatBot IA</field>
+        <field name="res_model">smart.chat.bot</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="context">{'search_default_my_messages': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Démarrez une conversation avec votre assistant IA !
+            </p>
+            <p>
+                Posez des questions sur votre stock, les produits, les entrées/sorties.
+                L'IA utilise vos données en temps réel pour répondre.
+            </p>
+        </field>
+    </record>
+
+</odoo>

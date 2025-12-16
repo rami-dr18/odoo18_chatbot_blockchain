@@ -1,0 +1,51 @@
+<odoo>
+    <!-- Liste des Sorties de Stock -->
+    <record id="view_stock_exit_list" model="ir.ui.view">
+        <field name="name">stock.exit.list</field>
+        <field name="model">stock.exit</field>
+        <field name="arch" type="xml">
+            <list string="Sorties de Stock">
+                <field name="product_id"/>
+                <field name="quantity"/>
+                <field name="location_id"/> 
+                <field name="date"/>
+                <field name="state"/>
+                <field name="previous_hash"/>
+                <field name="tx_hash"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Formulaire Sortie de Stock -->
+    <record id="view_stock_exit_form" model="ir.ui.view">
+        <field name="name">stock.exit.form</field>
+        <field name="model">stock.exit</field>
+        <field name="arch" type="xml">
+            <form string="Sortie de Stock">
+                <sheet>
+                    <header>
+                        <button name="action_confirm" type="object" string="Valider" class="btn-primary"/>
+                        <button name="action_set_done" type="object" string="Terminer" class="btn-success"/>
+                        <button name="action_reset" type="object" string="Brouillon" class="btn-secondary"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <group>
+                        <field name="product_id"/>
+                        <field name="quantity"/>
+                        <field name="location_id"/> 
+                        <field name="date"/>
+                        <field name="previous_hash" readonly="1"/>
+                        <field name="tx_hash" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action pour afficher la liste -->
+    <record id="action_stock_exit" model="ir.actions.act_window">
+        <field name="name">Sorties de Stock</field>
+        <field name="res_model">stock.exit</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>
