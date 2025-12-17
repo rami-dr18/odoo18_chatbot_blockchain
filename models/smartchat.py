@@ -84,7 +84,7 @@ Instructions IMPORTANTES:
         response = requests.post(
             url="https://openrouter.ai/api/v1/chat/completions",
             headers={
-                "Authorization": "Bearer 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",
+                "Authorization": "Bearer YOUR_API_KEY_HERE",
                 "Content-Type": "application/json"
             },
             data=json.dumps({
